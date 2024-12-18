@@ -2,10 +2,11 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const serverless = require("serverless-http");
+const { Router } = require("express");
 
 const app = express(); // Correctly initialize the Express app
 const server = http.createServer(app);
-
+const route = Router();
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
@@ -41,9 +42,8 @@ io.on("connection", (socket) => {
   });
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+//const PORT = process.env.PORT || 5000;
+//server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
-// Export handler for serverless
-module.exports.handler = serverless(app);
+app.use('/api', route)
+export const handler = serverless(app);

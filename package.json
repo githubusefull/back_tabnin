@@ -10,6 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@netlify/functions": "^2.8.2",
+    "@types/express": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "netlify-lambda": "^2.0.16",
