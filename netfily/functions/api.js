@@ -45,5 +45,5 @@ io.on("connection", (socket) => {
 //const PORT = process.env.PORT || 5000;
 //server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
-app.use('/api', route)
+app.use('/api/', route)
 export const handler = serverless(app);
